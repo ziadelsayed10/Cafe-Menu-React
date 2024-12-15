@@ -1,0 +1,76 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div className="product-par">
+  {displayedProducts.length > 0 ? (
+    displayedProducts.map((product, index) => (
+      <div key={index} className="product-container">
+        {/* صورة المنتج */}
+        <div
+          style={{
+            backgroundImage: `url(${product.img})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            height: "200px", // يمكنك تعديل الارتفاع حسب الحاجة
+            width: "150px",  // يمكنك تعديل العرض حسب الحاجة
+            borderRadius: "10px",
+          }}
+          className="product"
+        ></div>
+        {/* معلومات المنتج */}
+        <div
+          style={{
+            textAlign: "center", // لجعل النص في المنتصف
+            marginTop: "10px",   // مسافة صغيرة بين الصورة والمعلومات
+            backgroundColor: index % 2 === 0 ? "#C9E9D2" : "#FFE3E3",  
+          }}
+        >
+          <p style={{ fontSize: "16px", margin: "5px 0" }}>
+            {product.name[language]}
+          </p>
+          <p style={{ fontSize: "14px", color: "gray", margin: "0" }}>
+            {product.price[language]}
+          </p>
+        </div>
+      </div>
+    ))
+  ) : (
+    <p>{language === "en" ? "No products found" : "لا توجد منتجات"}</p>
+  )}
+</div>
